@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\acern\\source\\repos\\mfTCPapp\\mfTCPapp\\mfTCPapp.csproj",
+      "projectUniqueName": "C:\\Users\\acern\\source\\repos\\sockets\\mfTCPapp\\mfTCPapp\\mfTCPapp.csproj",
       "projectName": "mfTCPapp",
-      "projectPath": "C:\\Users\\acern\\source\\repos\\mfTCPapp\\mfTCPapp\\mfTCPapp.csproj",
+      "projectPath": "C:\\Users\\acern\\source\\repos\\sockets\\mfTCPapp\\mfTCPapp\\mfTCPapp.csproj",
       "packagesPath": "C:\\Users\\acern\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\acern\\source\\repos\\mfTCPapp\\mfTCPapp\\obj\\",
+      "outputPath": "C:\\Users\\acern\\source\\repos\\sockets\\mfTCPapp\\mfTCPapp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

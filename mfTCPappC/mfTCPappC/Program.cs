@@ -8,12 +8,24 @@ namespace mfTCPappC
     class Program
     {
 
-            static public void Send(Socket soket, string msg)
+        static public void Send(Socket soket, string msg)
+        {
+            int totalSent = 0;
+            string data = msg;
+            byte[] dataToSend = Encoding.ASCII.GetBytes(data);
+            byte[] lenOfsend = BitConverter.GetBytes(dataToSend.Length);
+            while (totalSent < 4)
             {
-                int totalSent = 0;
-                string data = msg;
-                byte[] dataToSend = Encoding.ASCII.GetBytes(data);
-                while (totalSent < dataToSend.Length)
+                int actuallySent = soket.Send(
+                lenOfsend,
+                totalSent,
+                4 - totalSent,
+                SocketFlags.None
+                );
+                totalSent += actuallySent;
+            }
+            totalSent = 0;
+            while (totalSent < dataToSend.Length)
                 {
                     int actuallySent = soket.Send(
                     dataToSend,
@@ -23,13 +35,25 @@ namespace mfTCPappC
                     );
                     totalSent += actuallySent;
                 }
-            }
-            static public string Recive(Socket sock)
+        }
+        static public string Recive(Socket sock)
+        {
+            byte[] bufferLen= new byte[4];
+            sock.Receive(bufferLen);
+            byte[] buffer = new byte[BitConverter.ToInt32(bufferLen, 0)];
+            int totalReceived = 0;
+            while (totalReceived < buffer.Length)
             {
-                byte[] buffer = new byte[128];
-                sock.Receive(buffer);
-                return Encoding.ASCII.GetString(buffer, 0, buffer.Length); 
+                int actuallyReceived = sock.Receive(
+                    bufferLen,
+                    totalReceived,
+                    buffer.Length - totalReceived,
+                    SocketFlags.None
+                    );
+                totalReceived += actuallyReceived;
             }
+            return Encoding.ASCII.GetString(buffer, 0, buffer.Length); 
+        }
         static string Read()
         {
             Console.WriteLine("Text:");
@@ -50,6 +74,7 @@ namespace mfTCPappC
 
             Send(sock, Read());
             Console.WriteLine(Recive(sock));
+            sock.Close();
         }
     }
 }

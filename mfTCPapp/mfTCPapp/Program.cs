@@ -10,8 +10,20 @@ namespace mfTCPapp
         static public void Send(Socket soket, string msg)
         {
             int totalSent = 0;
-            string data =msg;
+            string data = msg;
             byte[] dataToSend = Encoding.ASCII.GetBytes(data);
+            byte[] lenOfsend = BitConverter.GetBytes(dataToSend.Length);
+            while (totalSent < 4)
+            {
+                int actuallySent = soket.Send(
+                lenOfsend,
+                totalSent,
+                4 - totalSent,
+                SocketFlags.None
+                );
+                totalSent += actuallySent;
+            }
+            totalSent = 0;
             while (totalSent < dataToSend.Length)
             {
                 int actuallySent = soket.Send(
@@ -25,9 +37,21 @@ namespace mfTCPapp
         }
         static public string Recive(Socket sock)
         {
-            byte[] buffer = new byte[128];
-            sock.Receive(buffer);
-            return Encoding.ASCII.GetString(buffer, 0, buffer.Length); 
+            byte[] bufferLen = new byte[4];
+            sock.Receive(bufferLen);
+            byte[] buffer = new byte[BitConverter.ToInt32(bufferLen, 0)];
+            int totalReceived = 0;
+            while (totalReceived < buffer.Length)
+            {
+                int actuallyReceived = sock.Receive(
+                    bufferLen,
+                    totalReceived,
+                    buffer.Length - totalReceived,
+                    SocketFlags.None
+                    );
+                totalReceived += actuallyReceived;
+            }
+            return Encoding.ASCII.GetString(buffer, 0, buffer.Length);
         }
         static string Change(string data)
         {
@@ -50,8 +74,9 @@ namespace mfTCPapp
             Console.WriteLine(Change(data));
 
             Send(socket, Change(data));
+            socket.Close();
         }
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
             Socket server = new Socket(
@@ -69,24 +94,8 @@ namespace mfTCPapp
             {
                 
                 Socket client = server.Accept();
-                pool.AddTask(client); // 3-я задача
-                /*
-                IPEndPoint addrc = (IPEndPoint)client.RemoteEndPoint;
-                Console.WriteLine(addr.Address.ToString());
-                string data = Recive(client);
-                //Console.WriteLine(data);
-                while (data == null)
-                {
-                    data = Recive(client);
-                    Console.WriteLine(data);
-                }
-                
-                Console.WriteLine(Change(data));
-
-                Send(client, Change(data));
-                */
+                pool.AddTask(client); 
             }
-
         }
     }
 }
