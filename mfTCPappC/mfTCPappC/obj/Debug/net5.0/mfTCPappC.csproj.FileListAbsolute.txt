@@ -1,0 +1,16 @@
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\mfTCPappC.exe
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\mfTCPappC.deps.json
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\mfTCPappC.runtimeconfig.json
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\mfTCPappC.runtimeconfig.dev.json
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\mfTCPappC.dll
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\ref\mfTCPappC.dll
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\bin\Debug\net5.0\mfTCPappC.pdb
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.csproj.AssemblyReference.cache
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.AssemblyInfoInputs.cache
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.AssemblyInfo.cs
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.csproj.CoreCompileInputs.cache
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.dll
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\ref\mfTCPappC.dll
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.pdb
+C:\Users\acern\source\repos\mfTCPappC\mfTCPappC\obj\Debug\net5.0\mfTCPappC.genruntimeconfig.cache
